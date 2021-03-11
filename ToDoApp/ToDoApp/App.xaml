@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoApp.App"
+             xmlns:homeVM="clr-namespace:ToDoApp.ViewModels">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="Margin" Value="10"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="FontSize" Value="25"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <DataTemplate x:Key="TaskTemplate">
+                <Grid Padding="5">
+                    <Frame CornerRadius="15" BorderColor="LightGray" HasShadow="True">
+                        <Grid RowDefinitions="*" ColumnDefinitions="5*,1*" Padding="0">
+                            <Label Text="{Binding Id}" IsVisible="False"/>
+                            <Label Text="{Binding Description}" TextColor="Black" FontSize="28" Grid.Column="0" VerticalOptions="Center"/>
+                            <Button Text="D" 
+                                    Grid.Column="1" 
+                                    FontSize="20" 
+                                    Margin="0" 
+                                    CornerRadius="100" 
+                                    Padding="0" 
+                                    BackgroundColor="LightGray" 
+                                    TextColor="Black"
+                                    
+                                    Command="{Binding TaskCompleteCommand}"
+                                    />
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

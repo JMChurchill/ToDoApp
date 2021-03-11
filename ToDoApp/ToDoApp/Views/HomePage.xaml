@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:data="clr-namespace:ToDoApp.Data" 
+             xmlns:homeVM="clr-namespace:ToDoApp.ViewModels"
+             
+             x:Class="ToDoApp.Views.HomePage">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Padding="10">
+                <Label Text="Notes"
+                   TextColor="Black"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" />
+                <CollectionView Margin="5"
+                            BackgroundColor="#f7f7f7"
+                            ItemsLayout="VerticalList"
+                            ItemsSource="{Binding Tasks}"
+                            ItemTemplate="{StaticResource TaskTemplate}"
+                            SelectionMode="Single"
+                            ItemsUpdatingScrollMode="KeepScrollOffset">
+                    
+
+                </CollectionView>
+                <Button Text="Add Task" Margin="0" FontAttributes="Bold" Clicked="AddTask_Clicked"/>
+            </StackLayout>
+
+            <!-- Backdrop -->
+            <BoxView Color="#4B000000"
+                        Opacity="0"
+                        InputTransparent="True"
+                        x:Name="Backdrop">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            
+            <!-- Bottom Drawer -->
+
+            <Frame  x:Name="BottomToolbar"
+                    HeightRequest="495"
+                    VerticalOptions="End"
+                    BackgroundColor="White"
+                    CornerRadius="20"
+                    Padding="15,6"
+                    HasShadow="True"
+                    TranslationY="540">
+                <Frame.GestureRecognizers>
+                    <PanGestureRecognizer
+                        PanUpdated="PanGestureRecognizer_PanUpdated"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Vertical" Padding="0,4">
+                    <BoxView CornerRadius="2" HeightRequest="2"
+                             BackgroundColor="LightGray"
+                             HorizontalOptions="Center"/>
+                    <Label Text="Create a task"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           FontSize="30"
+                           FontAttributes="Bold"/>
+                    <Grid RowDefinitions="*" ColumnDefinitions="5*,1*">
+                        <Frame BorderColor="LightGray" CornerRadius="20" Padding="10,0" HasShadow="True" Margin="0,0" Grid.Column="0">
+                            <Entry Text="{Binding NewDescription}" Placeholder="Task" PlaceholderColor="DarkGray" FontSize="28" TextColor="Black" BackgroundColor="White"/>
+                        </Frame>
+                        <Button Text="D" Grid.Column="1" Margin="0" Padding="0" CornerRadius="100" Command="{Binding AddTaskCommand}" Clicked="CreateTask_Clicked"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
