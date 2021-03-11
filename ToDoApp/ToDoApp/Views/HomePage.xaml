@@ -14,16 +14,36 @@
                    FontAttributes="Bold"
                 VerticalOptions="Start" 
                 HorizontalOptions="Start" />
-                <CollectionView Margin="5"
+                <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                                Command="{Binding RefreshCommand}">
+                    <CollectionView Margin="5"
                             BackgroundColor="#f7f7f7"
                             ItemsLayout="VerticalList"
                             ItemsSource="{Binding Tasks}"
                             ItemTemplate="{StaticResource TaskTemplate}"
                             SelectionMode="Single"
-                            ItemsUpdatingScrollMode="KeepScrollOffset">
-                    
+                            ItemsUpdatingScrollMode="KeepScrollOffset"
+                            SelectedItem="{Binding SelectedTask, Mode=TwoWay}"
+                            IsGrouped="True"    >
+                        <CollectionView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <Grid>
 
-                </CollectionView>
+                                    <Label Text="{Binding Name}"
+                                   
+                                   FontSize="Large"
+                                   FontAttributes="Bold" 
+                                          HorizontalTextAlignment="Center"/>
+                                    <BoxView CornerRadius="10" HeightRequest="1"
+                             BackgroundColor="LightGray" WidthRequest="150"
+                             HorizontalOptions="Center" Opacity=".2"/>
+                                </Grid>
+                                
+                            </DataTemplate>
+                        </CollectionView.GroupHeaderTemplate>
+                    </CollectionView>
+                </RefreshView>
+
                 <Button Text="Add Task" Margin="0" FontAttributes="Bold" Clicked="AddTask_Clicked"/>
             </StackLayout>
 
@@ -52,14 +72,15 @@
                         PanUpdated="PanGestureRecognizer_PanUpdated"/>
                 </Frame.GestureRecognizers>
                 <StackLayout Orientation="Vertical" Padding="0,4">
-                    <BoxView CornerRadius="2" HeightRequest="2"
-                             BackgroundColor="LightGray"
-                             HorizontalOptions="Center"/>
                     <Label Text="Create a task"
                            TextColor="Black"
                            HorizontalOptions="Center"
                            FontSize="30"
                            FontAttributes="Bold"/>
+                    <BoxView CornerRadius="2" HeightRequest="2"
+                             BackgroundColor="LightGray"
+                             HorizontalOptions="Center"/>
+
                     <Grid RowDefinitions="*" ColumnDefinitions="5*,1*">
                         <Frame BorderColor="LightGray" CornerRadius="20" Padding="10,0" HasShadow="True" Margin="0,0" Grid.Column="0">
                             <Entry Text="{Binding NewDescription}" Placeholder="Task" PlaceholderColor="DarkGray" FontSize="28" TextColor="Black" BackgroundColor="White"/>

@@ -16,23 +16,8 @@ namespace ToDoApp.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public bool IsDone { get; set; }
-
-        //public ToDoTask()
-        //{
-        //}
         public ToDoTask()
         {
-            //TaskCompleteCommand = new Command<HomeViewModel>(TaskComplete);
         }
-
-        //public Command<HomeViewModel> TaskCompleteCommand { get; }
-
-        public ICommand TaskCompleteCommand => new Command(() =>
-        {
-            HomeViewModel model = new HomeViewModel();
-            model.TaskComplete(Id);
-            Shell.Current.GoToAsync("HomePage");
-        });
-
     }
 }

@@ -7,32 +7,39 @@ namespace ToDoApp.Data
 {
     class TaskMockData
     {
-        public static IList<ToDoTask> Tasks { get; private set; }
-        public static IList<ToDoTask> AllTasks { get; private set; }
+        public static List<ToDoTask> TempTasks { get; private set; }
+        public static List<ToDoTask> TaskData { get; private set; }
+        
+        public static List<ToDoTask> RemainingTasks { get; private set; }
+        public static List<ToDoTask> CompletedTasks { get; private set; }
+        public static List<List<ToDoTask>> AllTasks { get; private set; }
+
+        public static List<TaskGroup> Tasks { get; private set; }
+
 
         static TaskMockData()
         {
-            AllTasks = new List<ToDoTask>();
+            TaskData = new List<ToDoTask>();
 
-            AllTasks.Add(new ToDoTask
+            TaskData.Add(new ToDoTask
             {
                 Id = 1,
                 Description = "the dis 1",
                 IsDone = false
             });
-            AllTasks.Add(new ToDoTask
+            TaskData.Add(new ToDoTask
             {
                 Id = 2,
                 Description = "the dis 2",
                 IsDone = false
             });
-            AllTasks.Add(new ToDoTask
+            TaskData.Add(new ToDoTask
             {
                 Id = 3,
                 Description = "the dis 3",
                 IsDone = false
             });
-            AllTasks.Add(new ToDoTask
+            TaskData.Add(new ToDoTask
             {
                 Id = 4,
                 Description = "the dis 4",
@@ -41,7 +48,7 @@ namespace ToDoApp.Data
         }
         public static void AddTask(string description)
         {
-            AllTasks.Add(new ToDoTask
+            TaskData.Add(new ToDoTask
             {
                 Id = 4,
                 Description = description,
@@ -49,44 +56,58 @@ namespace ToDoApp.Data
             });
         }
 
-        public static List<ToDoTask> LoadTasks()
+        public static List<TaskGroup> LoadTasks()
         {
-            Tasks = new List<ToDoTask>();
-            foreach (var aTask in AllTasks)
+            RemainingTasks = new List<ToDoTask>();
+            CompletedTasks = new List<ToDoTask>();
+            Tasks = new List<TaskGroup>();
+            foreach (var aTask in TaskData)
             {
                 if (aTask.IsDone == false)
                 {
-                    Tasks.Add(new ToDoTask
+                    RemainingTasks.Add(new ToDoTask
                     {
                         Id = aTask.Id,
                         Description = aTask.Description,
                         IsDone = false
                     });
                 }
+                if (aTask.IsDone == true)
+                {
+                    CompletedTasks.Add(new ToDoTask
+                    {
+                        Id = aTask.Id,
+                        Description = aTask.Description,
+                        IsDone = true
+                    });
+                }
             }
-            return (List<ToDoTask>)Tasks;
+            //AllTasks.Add(RemainingTasks);
+            //AllTasks.Add(CompletedTasks);
+            if (RemainingTasks.Count > 0)
+            {
+                Tasks.Add(new TaskGroup("Remaining", RemainingTasks));
+
+            }
+            if (CompletedTasks.Count > 0)
+            {
+                Tasks.Add(new TaskGroup("Completed", CompletedTasks));
+            }
+            //Tasks.Add(new TaskGroup("Remaining", RemainingTasks));
+            //Tasks.Add(new TaskGroup("Completed", CompletedTasks));
+            return Tasks;
         }
         public static void TaskComplete(int Id)
         {
-            //bool isFound = false;
-            //Tasks = new List<ToDoTask>();
-            foreach (var aTask in AllTasks)
+            foreach (var aTask in TaskData)
             {
                 if (aTask.Id == Id)
                 {
-                    //foreach (var item in AllTasks)
-                    //{
-                    //    if (item.Id == Id)
-                    //    {
-                    //        AllTasks.Remove(item);
-                    //    }
-                    //}
-                    AllTasks.Remove(aTask);
+                    //CompletedTasks.Add(aTask);
+                    aTask.IsDone = !aTask.IsDone;
                     break;
                 }
-                
             }
-
         }
     }
 }

@@ -1939,11 +1939,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshu\\source\\repos\\ToDoApp\\ToDoApp\\ToDoApp.Android\\ToDoApp.Android.csproj",
+      "projectUniqueName": "C:\\Git\\ToDoApp\\ToDoApp\\ToDoApp.Android\\ToDoApp.Android.csproj",
       "projectName": "ToDoApp.Android",
-      "projectPath": "C:\\Users\\joshu\\source\\repos\\ToDoApp\\ToDoApp\\ToDoApp.Android\\ToDoApp.Android.csproj",
+      "projectPath": "C:\\Git\\ToDoApp\\ToDoApp\\ToDoApp.Android\\ToDoApp.Android.csproj",
       "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshu\\source\\repos\\ToDoApp\\ToDoApp\\ToDoApp.Android\\obj\\",
+      "outputPath": "C:\\Git\\ToDoApp\\ToDoApp\\ToDoApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1964,8 +1964,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\joshu\\source\\repos\\ToDoApp\\ToDoApp\\ToDoApp\\ToDoApp.csproj": {
-              "projectPath": "C:\\Users\\joshu\\source\\repos\\ToDoApp\\ToDoApp\\ToDoApp\\ToDoApp.csproj"
+            "C:\\Git\\ToDoApp\\ToDoApp\\ToDoApp\\ToDoApp.csproj": {
+              "projectPath": "C:\\Git\\ToDoApp\\ToDoApp\\ToDoApp\\ToDoApp.csproj"
             }
           }
         }

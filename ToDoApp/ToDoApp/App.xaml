@@ -2,7 +2,7 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoApp.App"
-             xmlns:homeVM="clr-namespace:ToDoApp.ViewModels">
+             xmlns:viewModels="clr-namespace:ToDoApp.ViewModels">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->
@@ -48,7 +48,8 @@
                                     BackgroundColor="LightGray" 
                                     TextColor="Black"
                                     
-                                    Command="{Binding TaskCompleteCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:HomeViewModel}},Path=TaskCompleteCommand}"
+                                    CommandParameter="{Binding .}"
                                     />
                         </Grid>
                     </Frame>

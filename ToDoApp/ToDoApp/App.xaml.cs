@@ -1,5 +1,4 @@
 ﻿using System;
-using ToDoApp.Services;
 using ToDoApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +12,6 @@ namespace ToDoApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }
 

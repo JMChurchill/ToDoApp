@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoApp.Models;
 using ToDoApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
