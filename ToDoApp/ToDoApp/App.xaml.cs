@@ -26,5 +26,10 @@ namespace ToDoApp
         protected override void OnResume()
         {
         }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -94,10 +94,5 @@ namespace ToDoApp.Views
         {
             await CloseDrawer();
         }
-
-        async void Tick_Clicked(object sender, EventArgs e)
-        {
-            await CloseDrawer();
-        }
     }
 }

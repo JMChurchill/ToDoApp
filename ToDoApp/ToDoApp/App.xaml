@@ -34,26 +34,43 @@
             </Style>
 
             <DataTemplate x:Key="TaskTemplate">
-                <Grid Padding="5">
-                    <Frame CornerRadius="15" BorderColor="LightGray" HasShadow="True">
-                        <Grid RowDefinitions="*" ColumnDefinitions="5*,1*" Padding="0">
-                            <Label Text="{Binding Id}" IsVisible="False"/>
-                            <Label Text="{Binding Description}" TextColor="Black" FontSize="28" Grid.Column="0" VerticalOptions="Center"/>
-                            <Button Text="D" 
-                                    Grid.Column="1" 
-                                    FontSize="20" 
-                                    Margin="0" 
-                                    CornerRadius="100" 
-                                    Padding="0" 
-                                    BackgroundColor="LightGray" 
-                                    TextColor="Black"
+                <!--<SwipeView>-->
+                    <!--<SwipeView.RightItems>-->
+                        <!--delete task-->
+                        <!--<SwipeItemView x:Name="DeleteBtn"
+                                       BackgroundColor="Red">
+                            <Grid RowDefinitions="Auto,*" WidthRequest="100">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                </Grid.GestureRecognizers>
+                                <BoxView CornerRadius="24,0,24,0"
+                                         Color="blue"
+                                         Grid.RowSpan="2"/>
+                                
+                            </Grid>
+                        </SwipeItemView>-->
+                    <!--</SwipeView.RightItems>-->
+                    <Grid Padding="5">
+                        <Frame CornerRadius="15" BorderColor="LightGray" HasShadow="True">
+                            <Grid RowDefinitions="*" ColumnDefinitions="5*,1*" Padding="0">
+                                <Label Text="{Binding Id}" IsVisible="False"/>
+                                <Label Text="{Binding Description}" TextColor="Black" FontSize="28" Grid.Column="0" VerticalOptions="Center"/>
+                                <Button Text="D" 
+                                        Grid.Column="1" 
+                                        FontSize="20" 
+                                        Margin="0" 
+                                        CornerRadius="100" 
+                                        Padding="0" 
+                                        BackgroundColor="LightGray" 
+                                        TextColor="Black"
                                     
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:HomeViewModel}},Path=TaskCompleteCommand}"
-                                    CommandParameter="{Binding .}"
-                                    />
-                        </Grid>
-                    </Frame>
-                </Grid>
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:HomeViewModel}},Path=TaskCompleteCommand}"
+                                        CommandParameter="{Binding .}"
+                                        />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                <!--</SwipeView>-->
             </DataTemplate>
         </ResourceDictionary>        
     </Application.Resources>

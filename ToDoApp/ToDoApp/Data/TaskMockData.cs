@@ -7,12 +7,10 @@ namespace ToDoApp.Data
 {
     class TaskMockData
     {
-        public static List<ToDoTask> TempTasks { get; private set; }
         public static List<ToDoTask> TaskData { get; private set; }
         
         public static List<ToDoTask> RemainingTasks { get; private set; }
         public static List<ToDoTask> CompletedTasks { get; private set; }
-        public static List<List<ToDoTask>> AllTasks { get; private set; }
 
         public static List<TaskGroup> Tasks { get; private set; }
 
