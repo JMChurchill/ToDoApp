@@ -18,7 +18,6 @@ C:\Git\ToDoApp\ToDoApp\ToDoApp\bin\Debug\netstandard2.0\ToDoApp.deps.json
 C:\Git\ToDoApp\ToDoApp\ToDoApp\bin\Debug\netstandard2.0\ToDoApp.dll
 C:\Git\ToDoApp\ToDoApp\ToDoApp\bin\Debug\netstandard2.0\ref\ToDoApp.dll
 C:\Git\ToDoApp\ToDoApp\ToDoApp\bin\Debug\netstandard2.0\ToDoApp.pdb
-C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\ToDoApp.csprojAssemblyReference.cache
 C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
