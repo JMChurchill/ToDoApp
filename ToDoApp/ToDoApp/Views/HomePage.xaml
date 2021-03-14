@@ -6,10 +6,10 @@
              
              x:Class="ToDoApp.Views.HomePage">
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="{AppThemeBinding Dark=Black, Light=White}">
             <StackLayout Padding="10">
                 <Label Text="Notes"
-                   TextColor="Black"
+                   TextColor="{AppThemeBinding Dark=White, Light=Black}"
                    FontSize="30"
                    FontAttributes="Bold"
                 VerticalOptions="Start" 
@@ -17,7 +17,7 @@
                 <RefreshView IsRefreshing="{Binding IsRefreshing}"
                                 Command="{Binding RefreshCommand}">
                     <CollectionView Margin="5"
-                            BackgroundColor="#f7f7f7"
+                            BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
                             
                             ItemsSource="{Binding Tasks}"
                             ItemTemplate="{StaticResource TaskTemplate}"
@@ -27,17 +27,17 @@
                             IsGrouped="True"    >
                         <!--ItemsLayout="VerticalList"-->
                         <CollectionView.ItemsLayout>
-                            <LinearItemsLayout ItemSpacing="6" Orientation="Vertical"/>
+                            <LinearItemsLayout ItemSpacing="10" Orientation="Vertical"/>
                         </CollectionView.ItemsLayout>
                         <CollectionView.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Grid>
 
                                     <Label Text="{Binding Name}"
-                                   
-                                   FontSize="Large"
-                                   FontAttributes="Bold" 
-                                          HorizontalTextAlignment="Center"/>
+                                        TextColor="{AppThemeBinding Dark=White, Light=Black}"
+                                        FontSize="Large"
+                                        FontAttributes="Bold" 
+                                        HorizontalTextAlignment="Center"/>
                                     <BoxView CornerRadius="10" HeightRequest="1"
                                             BackgroundColor="LightGray" WidthRequest="150"
                                             HorizontalOptions="Center" Opacity=".2"/>
@@ -66,7 +66,7 @@
             <Frame  x:Name="BottomToolbar"
                     HeightRequest="495"
                     VerticalOptions="End"
-                    BackgroundColor="White"
+                    BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"
                     CornerRadius="20"
                     Padding="15,6"
                     HasShadow="True"
@@ -77,7 +77,7 @@
                 </Frame.GestureRecognizers>
                 <StackLayout Orientation="Vertical" Padding="0,4">
                     <Label Text="Create a task"
-                           TextColor="Black"
+                           TextColor="{AppThemeBinding Dark=White, Light=Black}"
                            HorizontalOptions="Center"
                            FontSize="30"
                            FontAttributes="Bold"/>
@@ -86,8 +86,8 @@
                              HorizontalOptions="Center"/>
 
                     <Grid RowDefinitions="*" ColumnDefinitions="5*,1*">
-                        <Frame BorderColor="LightGray" CornerRadius="20" Padding="10,0" HasShadow="True" Margin="0,0" Grid.Column="0">
-                            <Entry Text="{Binding NewDescription}" Placeholder="Task" PlaceholderColor="DarkGray" FontSize="28" TextColor="Black" BackgroundColor="White"/>
+                        <Frame BorderColor="{AppThemeBinding Dark=white, Light=LightGray}" CornerRadius="20" Padding="10,5" HasShadow="True" Margin="0,0" Grid.Column="0" BackgroundColor="{AppThemeBinding Dark=Black, Light=White}">
+                            <Entry Text="{Binding NewDescription}" Placeholder="Task" PlaceholderColor="DarkGray" FontSize="28" TextColor="{AppThemeBinding Dark=White, Light=Black}" BackgroundColor="{AppThemeBinding Dark=Black, Light=White}"/>
                         </Frame>
                         <Button Text="D" Grid.Column="1" Margin="0" Padding="0" CornerRadius="100" Command="{Binding AddTaskCommand}" Clicked="CreateTask_Clicked"/>
                     </Grid>

@@ -57,10 +57,10 @@
                             </Grid>
                         </SwipeItemView>
                     </SwipeView.RightItems>
-                        <Frame CornerRadius="15" BorderColor="LightGray" HasShadow="True">
+                    <Frame CornerRadius="25" BorderColor="{AppThemeBinding Dark=white, Light=LightGray}" HasShadow="True" BackgroundColor="{AppThemeBinding Dark=Black, Light=White}">
                             <Grid RowDefinitions="*" ColumnDefinitions="5*,1*" Padding="0">
                                 <Label Text="{Binding Id}" IsVisible="False"/>
-                                <Label Text="{Binding Description}" TextColor="Black" FontSize="28" Grid.Column="0" VerticalOptions="Center"/>
+                                <Label Text="{Binding Description}" TextColor="{AppThemeBinding Dark=White, Light=Black}" FontSize="28" Grid.Column="0" VerticalOptions="Center"/>
                                 <Button Text="D" 
                                         Grid.Column="1" 
                                         FontSize="20" 
