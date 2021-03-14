@@ -29,3 +29,4 @@ C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\ToDoApp.dll
 C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\ref\ToDoApp.dll
 C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\ToDoApp.pdb
+C:\Git\ToDoApp\ToDoApp\ToDoApp\obj\Debug\netstandard2.0\ToDoApp.csprojAssemblyReference.cache

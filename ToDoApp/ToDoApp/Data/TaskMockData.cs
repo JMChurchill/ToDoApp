@@ -107,5 +107,18 @@ namespace ToDoApp.Data
                 }
             }
         }
+        public static void DeleteTask(int Id)
+        {
+            foreach (var aTask in TaskData)
+            {
+                if (aTask.Id == Id)
+                {
+                    //CompletedTasks.Add(aTask);
+                    //aTask.IsDone = !aTask.IsDone;
+                    TaskData.Remove(aTask);
+                    break;
+                }
+            }
+        }
     }
 }

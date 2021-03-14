@@ -19,6 +19,7 @@ namespace ToDoApp.ViewModels
             Tasks = TaskMockData.LoadTasks();
             RefreshCommand = new Command(ExecuteRefreshCommand);
             TaskCompleteCommand = new Command<ToDoTask>(TaskCompleted);
+            DeleteTaskCommand = new Command<ToDoTask>(DeleteTask);
             OnPropertyChanged("Tasks");
         }
         public List<TaskGroup> Tasks { get; set; }
@@ -28,6 +29,7 @@ namespace ToDoApp.ViewModels
         public string NewDescription { get; set; }
         public ICommand RefreshCommand { get; }
         public Command<ToDoTask> TaskCompleteCommand { get; }
+        public Command<ToDoTask> DeleteTaskCommand { get; }
         public ICommand AddTaskCommand => new Command(() =>
         {
             TaskMockData.AddTask(NewDescription);
@@ -64,7 +66,16 @@ namespace ToDoApp.ViewModels
             OnPropertyChanged("Tasks");
             //await Application.Current.MainPage.DisplayAlert("Selected", "Done", "Ok");
         }
-
+        async void DeleteTask(ToDoTask task)
+        {
+            if (task == null)
+            {
+                return;
+            }
+            TaskMockData.DeleteTask(task.Id);
+            Tasks = TaskMockData.LoadTasks();
+            OnPropertyChanged("Tasks");
+        }
         public void ClearNewTask()
         {
             NewDescription = "";

@@ -18,13 +18,17 @@
                                 Command="{Binding RefreshCommand}">
                     <CollectionView Margin="5"
                             BackgroundColor="#f7f7f7"
-                            ItemsLayout="VerticalList"
+                            
                             ItemsSource="{Binding Tasks}"
                             ItemTemplate="{StaticResource TaskTemplate}"
                             SelectionMode="Single"
                             ItemsUpdatingScrollMode="KeepScrollOffset"
                             SelectedItem="{Binding SelectedTask, Mode=TwoWay}"
                             IsGrouped="True"    >
+                        <!--ItemsLayout="VerticalList"-->
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="6" Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
                         <CollectionView.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -35,8 +39,8 @@
                                    FontAttributes="Bold" 
                                           HorizontalTextAlignment="Center"/>
                                     <BoxView CornerRadius="10" HeightRequest="1"
-                             BackgroundColor="LightGray" WidthRequest="150"
-                             HorizontalOptions="Center" Opacity=".2"/>
+                                            BackgroundColor="LightGray" WidthRequest="150"
+                                            HorizontalOptions="Center" Opacity=".2"/>
                                 </Grid>
                                 
                             </DataTemplate>

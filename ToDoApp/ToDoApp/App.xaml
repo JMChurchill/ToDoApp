@@ -2,7 +2,8 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoApp.App"
-             xmlns:viewModels="clr-namespace:ToDoApp.ViewModels">
+             xmlns:viewModels="clr-namespace:ToDoApp.ViewModels"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->
@@ -34,23 +35,28 @@
             </Style>
 
             <DataTemplate x:Key="TaskTemplate">
-                <!--<SwipeView>-->
-                    <!--<SwipeView.RightItems>-->
-                        <!--delete task-->
-                        <!--<SwipeItemView x:Name="DeleteBtn"
-                                       BackgroundColor="Red">
-                            <Grid RowDefinitions="Auto,*" WidthRequest="100">
+                <SwipeView android:SwipeView.SwipeTransitionMode="Drag">
+                    <SwipeView.RightItems>
+                        <SwipeItemView
+                            x:Name="deleteBtn"
+                            Background="transparent" Margin="0">
+                            <Grid RowDefinitions="*"
+                                  WidthRequest="109">
                                 <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:HomeViewModel}},Path=TaskCompleteCommand}"
+                                        CommandParameter="{Binding .}"/>
                                 </Grid.GestureRecognizers>
-                                <BoxView CornerRadius="24,0,24,0"
-                                         Color="blue"
-                                         Grid.RowSpan="2"/>
-                                
+                                <BoxView CornerRadius="0,15,0,15" Color="Blue"/>
+                                <Label Text="Del" 
+                                       FontAttributes="Bold" 
+                                       HorizontalTextAlignment="Center" 
+                                       VerticalTextAlignment="Center" 
+                                       TextColor="White"
+                                       FontSize="30"/>
                             </Grid>
-                        </SwipeItemView>-->
-                    <!--</SwipeView.RightItems>-->
-                    <Grid Padding="5">
+                        </SwipeItemView>
+                    </SwipeView.RightItems>
                         <Frame CornerRadius="15" BorderColor="LightGray" HasShadow="True">
                             <Grid RowDefinitions="*" ColumnDefinitions="5*,1*" Padding="0">
                                 <Label Text="{Binding Id}" IsVisible="False"/>
@@ -63,14 +69,12 @@
                                         Padding="0" 
                                         BackgroundColor="LightGray" 
                                         TextColor="Black"
-                                    
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:HomeViewModel}},Path=TaskCompleteCommand}"
                                         CommandParameter="{Binding .}"
                                         />
                             </Grid>
                         </Frame>
-                    </Grid>
-                <!--</SwipeView>-->
+                </SwipeView>
             </DataTemplate>
         </ResourceDictionary>        
     </Application.Resources>
